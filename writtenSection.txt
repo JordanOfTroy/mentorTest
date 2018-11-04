@@ -1,29 +1,72 @@
 Answer each question in a written format
 
 1. What does semantic HTML mean?
+    In essence, Semantic HTML is just being more verbose with your HTML div structure. 
+    Using tags such as "header", "body", "footer", and "section" make your HTML more semantic.
 
 2. What is the box model?
+    The Box Model refers to the visual representation of an element. The four parts of the Box Model
+    are as follows:
+    1) Content: What is contained between the opening and closing tags of an element.
+    2) Padding: The space between the content and the border of an element.
+    3) Border: The outermost edge or perimeter of the element. 
+    4) Margin: The space surrounding the border of the element. Dictates how close other elements can be.
+      (a personal bubble for that given element)
 
 3. What is the difference between IDs and Classes?
+    IDs and Classes are similar in that they are both used to select elements. A Class can be applied to 
+    multiple different elements, whereas an ID should be unique and only applied to one element. Also, IDs
+    have a higher specificity than classes when it comes to applying CSS.
 
 4. What is z-index (CSS property) useful for?
+    The z-index property allows you to control where an element is placed along the z-axis of a 3 dimensional plane.
+    This property allows you to control how different elements are stacked on one another.
 
 5. Summarize what the keyword 'this' is used for?
+    The keyword 'this' is used to implicitly bind methods to an object or class.
 
 6. What is a callback? What are common uses for callbacks in JavaScript?
+    A callback is a function that has been passed in as an parameter of another function. A commonly used example of callbacks
+    would be the .forEach prototype which takes in a callback function to be run on each element of an array.
 
 7. What is a closure and why is it useful?
+    A closure is a function that exists inside of another function. The child function has access to the parent functions params and 
+    variables. As such, when invoked, it can preform actions with those functions without having to expose the parents variables to 
+    the global scope. The allows for data privacy. 
 
 8. How does a prototype work?
+    Every object in JS know what basic data type is is. As such, each object has access to built in methods known as prototypes via 
+    inheritance. I.E. If you declare 'let myArr = []', myArr will know that it is an array and have access to '.push', '.pop', etc...
 
 9. Describe what a component-based framework/library is?
+    A component-based framework/library is a pattern of development. Instead of creating fewer larger documents and structuring your app
+    following the MPA pattern you can use a component-based framework/library, such as React, to break up the code into reusable
+    components. These components are simply smaller bits of code that are dedicated to specific functionality. They can then be rendered 
+    together to created an application. A good way to visualize this pattern is to think of each component as a lego piece. With the right 
+    pieces, you can build anything you'd like.   
 
 10. What is the component lifecycle in React?
+    The component lifecycle refers to the events that take place when a component is rendered, and are as follows:
+    1) Initialization
+    2) Mounting
+    3) Updating
+    4) Un-mounting
 
 11. What is REST? (not just a description of the acronym)
+    REST stands for REpresentational State Transfer, and is a pattern used by developers to build and interact with APIs.
+    These patterns allow you to make different requests (usually passing along data) expecting certain responses. 
+    A common acronym associated with RESTful APIs is 'CRUD'. The most common requests you can take with a RESTful API are 
+    as follows:
+    1) Create -> .post
+    2) Update -> .put (or .patch)
+    3) Read -> .get
+    4) Delete -> .delete
+
 
 12. Name three common ways of getting data from a request (in Express.JS):
-
+    1) Sending a body object with the request.
+    2) Sending params in the request URL.
+    3) sending queries in the request URL
 
 
 -- =====================
@@ -38,8 +81,23 @@ email varchar(255)
 
 -Get all users:
 
+  select * from users
+
+
 -Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+
+  insert into users (name,  email)
+  values ("Jordan Smithson", "fake@fake.com")
+
 
 -Update the newly created user's name to 'Bobby Boy':
 
+  update users
+  set name = "Bobby Boy"
+  where id = $1 <-- variable to indicate users number. (I would assume it's 1 as we just created the table, but you know what they say about ass-u-me-ing.) 
+
+
 -Delete the newly updated user:
+
+  delete from users
+  where id = $1 <-- variable to indicate users number.
